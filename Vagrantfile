@@ -19,11 +19,11 @@ Vagrant.configure("2") do |config|
 
   # Manage Nodes設定
   config.vm.define "Manage.Nodes" do |m1|
-    m1.vm.box = "ubuntu/trusty64"
+  m1.vm.box = "ubuntu/trusty64"
 	m1.vm.hostname = "Manage.Nodes"
 	m1.vm.network "private_network", ip: "192.168.30.5"
   m1.vm.provision "file", source: "./mysql-cluster-config/config.ini", destination: "config.ini"
-	m1.vm.provision "shell", inline: <<-SHELL
+  m1.vm.provision "shell", inline: <<-SHELL
   #1.新增mysql-cluster資料夾
   sudo mkdir /usr/local/mysql/mysql-cluster
   #2.移動config.ini
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
 	sudo /usr/local/mysql/bin/ndb_mgmd -f /usr/local/mysql/mysql-cluster/config.ini --initial
   #4.將工具複製到 /usr/local/bin 方便使用
   sudo cp /usr/local/mysql/bin/ndb_mgm* /usr/local/bin/
-	SHELL
+  SHELL
    m1.vm.provider "virtualbox" do |v|
       v.memory = 2048
        end
