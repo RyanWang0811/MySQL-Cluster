@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   
   # 此處的 shell provision 會套用到所有的 VM
-	config.vm.provision "file", source: "C:/Users/user/Desktop/test/mysql-cluster-gpl-7.4.11-linux-glibc2.5-x86_64.tar.gz", destination: "mysql-cluster-gpl-7.4.11-linux-glibc2.5-x86_64.tar.gz"
+	config.vm.provision "file", source: "./mysql-cluster-gpl-7.4.11-linux-glibc2.5-x86_64.tar.gz", destination: "mysql-cluster-gpl-7.4.11-linux-glibc2.5-x86_64.tar.gz"
   config.vm.provision "shell", inline: <<-SHELL
 	sudo tar -zxvf mysql-cluster-gpl-7.4.11-linux-glibc2.5-x86_64.tar.gz
 	sudo mv mysql-cluster-gpl-7.4.11-linux-glibc2.5-x86_64 mysql
