@@ -6,7 +6,7 @@ http://dev.mysql.com/get/Downloads/MySQL-Cluster-7.4/mysql-cluster-gpl-7.4.11-li
 
 ## 2.Use vargrant with the Vagrantfile
 
-vagrant up 'machinename' 
+`vagrant up 'machinename'`
 
 the up order is Manage.Nodes > Data.Nodes.1 > SQL.Nodes.1 
 
@@ -36,15 +36,21 @@ You will get the info of Nodes like this
 ## 4.Login SQL.Nodes.1 & 2 to create database user
 
 ###  a.login SQL.Nodes.1 & 2
-  `vagrant ssh SQL.Nodes.1`
+`vagrant ssh SQL.Nodes.1`
 ### b. set root password
-  `sudo /usr/local/mysql/bin/mysqladmin -u root password "password"`
+`sudo /usr/local/mysql/bin/mysqladmin -u root password "password"`
 ### c. Login MySQL console
-  `sudo /usr/local/mysql/bin/mysql -u root -p`
+`sudo /usr/local/mysql/bin/mysql -u root -p`
 ### d.create a user that it can be login from any ip.
-  `create user 'user'@'%' identified by 'user' ;`
+`create user 'user'@'%' identified by 'user' ;`
 ### e.Give the authority to user
-  `grant all on *.* to 'user'@'%';`
+`grant all on *.* to 'user'@'%';`
+
+
+---------------------------------------
+
+@@尚未完成服務自動啟動 若重新開機需手動啟動各項服務
+
 
 
   
