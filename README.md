@@ -51,6 +51,10 @@ You will get the info of Nodes like this
 
 @@尚未完成服務自動啟動 若重新開機需手動啟動各項服務
 
-
-
+啟動Manage.Nodes
+`sudo /usr/local/mysql/bin/ndb_mgmd -f /usr/local/mysql/mysql-cluster/config.ini --initial`
+啟動Data.Nodes
+`sudo /usr/local/mysql/bin/ndbd --initial`
+啟動SQL.Nodes
+`sudo /usr/local/mysql/support-files/mysql.server start`
   
